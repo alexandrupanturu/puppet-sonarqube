@@ -72,9 +72,9 @@ class sonarqube (
     $real_home = '/var/local/sonar'
   }
 
-  # Sonarqube::Move_to_home {
-  #   home => $real_home,
-  # }
+  Sonarqube::Move_to_home {
+    home => $real_home,
+  }
 
   $extensions_dir = "${real_home}/extensions"
   $plugin_dir = "${extensions_dir}/plugins"
