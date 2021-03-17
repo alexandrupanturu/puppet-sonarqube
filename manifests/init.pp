@@ -65,7 +65,9 @@ class sonarqube (
   # wget from https://github.com/maestrodev/puppet-wget
   include wget
 
-  $package_name = 'sonarqube'
+  if $edition == 'community' {
+    $package_name = 'sonarqube'
+  }
 
   if $edition == 'enterprise' {
     $package_name = 'sonarqube-enterprise'
@@ -90,7 +92,7 @@ class sonarqube (
   $tmpzip = "${download_dir}/${package_name}-${version}.zip"
   $script = "${installdir}/bin/${arch}/sonar.sh"
 
-  if ! defined(Package[unzip]) {
+  if !defined(Package[unzip]) {
     package { 'unzip':
       ensure => present,
       before => Exec[untar],
@@ -144,7 +146,8 @@ class sonarqube (
   ->
   # ===== Install SonarQube =====
   exec { 'untar':
-    command => "unzip -o ${tmpzip} -d ${installroot} && chown -R ${user}:${group} ${installroot}/${package_name}-${version} && chown -R ${user}:${group} ${real_home}",
+    command => "unzip -o ${tmpzip} -d ${installroot} && chown -R ${user}:${group} ${installroot}/${package_name}-${
+      version} && chown -R ${user}:${group} ${real_home}",
     creates => "${installroot}/${package_name}-${version}/bin",
     notify  => Service['sonarqube'],
   }
