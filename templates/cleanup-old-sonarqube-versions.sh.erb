@@ -3,7 +3,7 @@
 cd $1
 for directory in $(ls | grep "sonarqube-")
 do
-  if [ "$directory" != "sonarqube-$2" ]
+  if [ "$directory" != "sonarqube-$2" ] && [ "$directory" != "sonarqube-enterprise-$2" ] && [ "$directory" != "sonarqube-developer-$2" ]
   then
       rm -rf "$directory"
   fi
