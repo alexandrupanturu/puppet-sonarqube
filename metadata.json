@@ -1,12 +1,12 @@
 {
-  "name": "maestrodev-sonarqube",
+  "name": "emag-sonar",
   "version": "2.6.8",
-  "author": "maestrodev",
+  "author": "eMAG",
   "summary": "SonarQube installation and configuration",
   "license": "Apache-2.0",
-  "source": "http://github.com/maestrodev/puppet-sonarqube",
-  "project_page": "http://github.com/maestrodev/puppet-sonarqube",
-  "issues_url": "https://github.com/maestrodev/puppet-sonarqube/issues",
+  "source": "https://git-puppet.emag.network/puppet/emag-sonar",
+  "project_page": "https://git-puppet.emag.network/puppet/emag-sonar",
+  "issues_url": "https://git-puppet.emag.network/puppet/emag-sonar",
   "description": "A module to install and configure SonarQube (former Sonar)",
   "dependencies": [
     {
