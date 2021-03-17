@@ -23,6 +23,7 @@ class sonarqube (
   $host             = undef,
   $port             = 9000,
   $portAjp          = -1,
+  $package_name     = 'sonarqube',
   $download_url     = 'https://sonarsource.bintray.com/Distribution/sonarqube',
   $download_dir     = '/usr/local/src',
   $context_path     = '/',
@@ -65,22 +66,12 @@ class sonarqube (
   # wget from https://github.com/maestrodev/puppet-wget
   include wget
 
-  if $edition == 'community' {
-    $package_name = 'sonarqube'
-  }
-
-  if $edition == 'enterprise' {
-    $package_name = 'sonarqube-enterprise'
-  }
-  if $edition == 'developer' {
-    $package_name = 'sonarqube-developer'
-  }
-
   if $home != undef {
     $real_home = $home
   } else {
     $real_home = '/var/local/sonar'
   }
+
   Sonarqube::Move_to_home {
     home => $real_home,
   }
