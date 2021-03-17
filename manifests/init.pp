@@ -15,6 +15,7 @@ class sonarqube (
   $version          = '4.5.5',
   $user             = 'sonar',
   $group            = 'sonar',
+  $edition          = 'community',
   $user_system      = true,
   $service          = 'sonar',
   $installroot      = '/usr/local',
@@ -65,6 +66,13 @@ class sonarqube (
   include wget
 
   $package_name = 'sonarqube'
+
+  if $edition == 'enterprise' {
+    $package_name = 'sonarqube-enterprise'
+  }
+  if $edition == 'developer' {
+    $package_name = 'sonarqube-developer'
+  }
 
   if $home != undef {
     $real_home = $home
