@@ -1,0 +1,26 @@
+stages:
+  - prepare
+  - deploy
+
+variables:
+  BUNDLE_GEMFILE: "~/deploy/Gemfile"
+
+# Install test dependencies (gems, etc)
+before_script:
+  - bundle install
+
+# Prepare
+prepare:
+  stage: prepare
+  script:
+    - bundle exec rake -f ~/deploy/Rakefile emag:prepare
+  tags:
+    - puppet
+
+# Deploy to Puppet servers (see /home/gitlab-runner/puppet-config.json)
+deploy:
+  stage: deploy
+  script:
+    - bundle exec rake -f ~/deploy/Rakefile emag:deploy
+  tags:
+    - puppet
