@@ -49,6 +49,7 @@ class sonarqube (
   $http_proxy       = {},
   $profile          = false,
   $web_java_opts    = undef,
+  $ce_java_opts     = undef,
   $search_java_opts = undef,
   $search_host      = '127.0.0.1',
   $search_port      = '9001',

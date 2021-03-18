@@ -125,6 +125,12 @@ sonar.search.javaOpts=<%= @search_java_opts %>
 sonar.search.port=<%= @search_port %>
 sonar.search.host=<%= @search_host %>
 
+# JVM options of Elasticsearch process
+<% if @ce_java_opts -%>
+sonar.ce.javaOpts=<%= @ce_java_opts %>
+<% end -%>
+
+
 #-----------------------------------------------------------------------
 # DATABASE
 #
