@@ -208,6 +208,14 @@ sonar.jdbc.maxWait:                        <% if @jdbc['max_wait'] %><%= @jdbc['
 sonar.jdbc.minEvictableIdleTimeMillis:     <% if @jdbc['min_evictable_idle_time_millis'] %><%= @jdbc['min_evictable_idle_time_millis'] %><% else %>600000<% end %>
 sonar.jdbc.timeBetweenEvictionRunsMillis:  <% if @jdbc['time_between_eviction_runs_millis'] %><%= @jdbc['time_between_eviction_runs_millis'] %><% else %>30000<% end %>
 
+<% if @jdbc['removeAbandoned'] -%>
+sonar.jdbc.removeAbandoned=<%= @jdbc['removeAbandoned'] %>
+<% end -%>
+
+<% if @jdbc['removeAbandonedTimeout'] -%>
+sonar.jdbc.removeAbandonedTimeout=<%= @jdbc['removeAbandonedTimeout'] %>
+<% end -%>
+
 <% end -%>
 
 #---------------------------------------------------------
